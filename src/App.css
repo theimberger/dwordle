@@ -1,5 +1,21 @@
+html, body, #root, .App {
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  background: #333333;
+}
+
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {
@@ -34,5 +50,116 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.guess-list {
+  margin: 0;
+}
+
+.word-item {
+  margin: 10px auto;
+}
+
+.word-item__letters {
+  display: flex;
+  justify-content: space-between;
+}
+
+.letter-inputs__row__letter,
+.word-item__letters__letter {
+  display: flex;
+  flex-shrink: 0;
+  font-weight: 700;
+  color: #DDDDDD;
+  margin: 0 5px;
+  height: 3.5rem;
+  width: 3.5rem;
+  border: 2px solid #777777;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  text-transform: uppercase;
+  transition-delay: .3s;
+  transition-property: background;
+}
+
+.letter-inputs__row__letter--grey,
+.word-item__letters__letter--grey {
+  background: #332222;
+}
+
+.letter-inputs__row__letter--green,
+.word-item__letters__letter--green {
+  background: #224422;
+}
+
+.letter-inputs__row__letter--yellow,
+.word-item__letters__letter--yellow {
+  background: #444422;
+}
+
+.word-item__letters__letter--grey,
+.word-item__letters__letter--green,
+.word-item__letters__letter--yellow {
+  animation-name: cardflip;
+  animation-duration: .7s;
+}
+
+.letter-inputs,
+.letter-inputs__row,
+.letter-inputs__row__letters {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 420px;
+  align-items: center;
+}
+
+.letter-inputs__row__letters {
+  flex-direction: row;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+.letter-inputs .letter-inputs__row:last-child {
+  width: 80%;
+}
+
+.letter-inputs__row__letter {
+  height: 2rem;
+  width: 1.5rem;
+  margin: 0;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.hidden-text-input {
+  opacity: 0;
+  height: 0;
+}
+
+@keyframes cardflip {
+  0% {
+    transform: scaleX(1);
+  }
+  25% {
+    color: transparent;
+  }
+  50% {
+    transform: scaleX(-1);
+  }
+  100% {
+    transform: scaleX(1);
   }
 }
